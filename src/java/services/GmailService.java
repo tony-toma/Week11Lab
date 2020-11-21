@@ -19,7 +19,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 public class GmailService {
-
+    // template email
+    
     public static void sendMail(String to, String subject, String template, HashMap<String, String> tags) throws Exception {
         // {{firstname}} -> Anne
         // {{date}} -> Oct. 28
@@ -51,6 +52,7 @@ public class GmailService {
         String username = (String) env.lookup("webmail-username");
         String password = (String) env.lookup("webmail-password");
 
+        // Create mail session
         Properties props = new Properties();
         props.put("mail.transport.protocol", "smtps");
         props.put("mail.smtps.host", "smtp.gmail.com");
